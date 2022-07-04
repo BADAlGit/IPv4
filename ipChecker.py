@@ -11,11 +11,13 @@ def validIPAddress( IP):
 
 storeIp = []
 
-for i in range(10):
+for i in range(2):
     IPv4 = input("Enter IPv4: ")
     if(validIPAddress(IPv4)==True):
-        storeIp.append(IPv4)
-	print("Valid IPv4 Adress. Enter next{after pressing enter key}."
+        binaryValue = '.'.join([bin(int(x)+256)[3:] for x in IPv4.split('.')]) 
+        octalValue ='.'.join(["%04o" % int(x) for x in IPv4.split('.')])
+        hexaValue = '.'.join([hex(int(i))[2:] for i in IPv4.split('.')])
+        storeIp.append(IPv4, binaryValue, octalValue, hexaValue))
         continue
     else:
         print("It is not a validIPAddress")
